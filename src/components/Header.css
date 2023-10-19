@@ -1,0 +1,20 @@
+@import url(../base/variables.css);
+@import url(../base/style.css);
+
+header {
+    background-color: var(--colorGray);
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    display: flex;
+}
+
+header section:nth-child(1) {
+    box-shadow: var(--shadow);
+    width: 408px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}

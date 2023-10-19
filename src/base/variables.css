@@ -1,0 +1,12 @@
+:root {
+    --colorGray: #f0f2f5;
+    --colorGrayTwo: #667781;
+    --colorDarkGray: #54656f;
+    --colorGreen: #d9fdd3;
+    --colorBlue: #517ebb;
+    --colorLightBlue: #53bdeb;
+    --colorBlack: #111b21;
+    --colorWhite: #ffffff;
+
+    --shadow: 0px -1px 3px 0px rgba(0, 0, 0, 0.164);
+}
