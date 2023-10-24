@@ -9,5 +9,13 @@
 
 .header__icons {
     display: flex;
-    gap: 30px;
+    gap: 28px;
+}
+
+.header__icons svg {
+    cursor: pointer;
+}
+
+.header__icons svg path {
+    fill: var(--colorDarkGray);
 }

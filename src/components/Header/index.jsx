@@ -6,11 +6,9 @@ export default class Header extends Component {
     render() {
         if(true) {
             return (
-                <header>
-                    <section>
-                        <HeaderSecContacts />
-                    </section>
-                </header>
+                <section>
+                    <HeaderSecContacts />
+                </section>
             );
         }
     }
