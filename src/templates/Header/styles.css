@@ -1,5 +1,5 @@
-@import url(../base/variables.css);
-@import url(../base/style.css);
+@import url(../../styles/variables.css);
+@import url(../../styles/global-styles.css);
 
 header {
     background-color: var(--colorGray);

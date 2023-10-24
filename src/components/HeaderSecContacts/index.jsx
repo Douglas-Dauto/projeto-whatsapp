@@ -1,5 +1,5 @@
 import { Component } from "react";
-import './HeaderSecContacts.css';
+import './styles.css';
 
 export default class HeaderSecContacts extends Component {
     render() {
