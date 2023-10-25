@@ -2,14 +2,23 @@ import { Component } from "react";
 import './styles.css';
 import SearchContacts from "../SearchContacts";
 import Contact from "../Contact";
+import my from '../../../src/assets/img/eu.jpg';
 
 export default class MenuContacts extends Component {
-    render() {
-        const contacts = [];
+    state = {
+        contacts: [
+            {
+                id: 1,
+                img: my,
+                name: 'Douglas Bastos',
+                visualization: false,
+                message: 'Oi, tudo bem com você?'
+            }
+        ]
+    }
 
-        for(let i = 0; i < 20; i++) {
-            contacts[i]= i;
-        }
+    render() {
+        const { contacts } = this.state;
 
         return (
             <div className="sec-menu">
@@ -18,7 +27,7 @@ export default class MenuContacts extends Component {
                 </section>
 
                 <section>
-                    {contacts.map((number) => <Contact key={number} />)}
+                    {contacts.map((contact, index) => <Contact key={contact.id} img={contacts[index].img} name={contacts[index].name} visualization={contacts[index].visualization} message={contacts[index].message} />)}
                 </section>
             </div>
         );

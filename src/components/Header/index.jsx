@@ -1,14 +1,21 @@
 import { Component } from 'react';
 import './styles.css';
 import HeaderSecContacts from '../../components/HeaderSecContacts';
+import HeaderSecChat from '../HeaderSecChat';
 
 export default class Header extends Component {
     render() {
         if(true) {
             return (
-                <section>
-                    <HeaderSecContacts />
-                </section>
+                <>
+                    <section>
+                        <HeaderSecContacts />
+                    </section>
+                    
+                    <section>
+                        <HeaderSecChat />
+                    </section>
+                </>
             );
         }
     }
