@@ -2,23 +2,15 @@ import { Component } from "react";
 import './styles.css';
 import SearchContacts from "../SearchContacts";
 import Contact from "../Contact";
-import my from '../../../src/assets/img/eu.jpg';
+import { contactsLenght } from '../Contact';
 
 export default class MenuContacts extends Component {
-    state = {
-        contacts: [
-            {
-                id: 1,
-                img: my,
-                name: 'Douglas Bastos',
-                visualization: false,
-                message: 'Oi, tudo bem com você?'
-            }
-        ]
-    }
-
     render() {
-        const { contacts } = this.state;
+        const contactsId = [];
+
+        for(let i = 0; i < contactsLenght; i++) {
+            contactsId.push(i);
+        }
 
         return (
             <div className="sec-menu">
@@ -27,7 +19,7 @@ export default class MenuContacts extends Component {
                 </section>
 
                 <section>
-                    {contacts.map((contact, index) => <Contact key={contact.id} img={contacts[index].img} name={contacts[index].name} visualization={contacts[index].visualization} message={contacts[index].message} />)}
+                    {contactsId.map((id) => <Contact key={id} id={id} />)}
                 </section>
             </div>
         );
