@@ -12,9 +12,7 @@ export default class Header extends Component {
                         <HeaderSecContacts />
                     </section>
                     
-                    <section>
-                        <HeaderSecChat />
-                    </section>
+                    <section id="header-sec-chat"></section>
                 </>
             );
         }

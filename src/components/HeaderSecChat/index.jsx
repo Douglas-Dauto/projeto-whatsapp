@@ -1,14 +1,17 @@
 import { Component } from "react";
-import my from '../../assets/img/eu.jpg';
 import './styles.css';
 
 export default class HeaderSecChat extends Component {
+    constructor(props) {
+        super(props);
+    }
+
     render() {
         return (
             <div className="header-sec-chat">
                 <div>
-                    <img src={my} alt="Pessoa" className="header-sec-chat__profile-chat" />
-                    <h3>+55 11 94511-3434</h3>
+                    <img src={this.props.img} alt="Pessoa" className="header-sec-chat__profile-chat" />
+                    <h3>{this.props.name}</h3>
                 </div>
 
                 <div>
