@@ -3,6 +3,7 @@ import Header from "../../components/Header";
 import MenuContacts from "../../components/MenuContacts";
 import './styles.css';
 import DownloadWhatsapp from "../../components/DownloadWhatsapp";
+import MainChat from "../../components/MainChat";
 export default class Home extends Component {
     render() {
         return (
@@ -16,8 +17,8 @@ export default class Home extends Component {
                         <MenuContacts />
                     </section>
 
-                    <section>
-                        <DownloadWhatsapp />
+                    <section id="main-sec-home">
+                        <MainChat />
                     </section>
                 </main>
             </>

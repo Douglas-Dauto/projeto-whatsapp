@@ -133,6 +133,14 @@ export default class Contact extends Component {
         headerSecChat.render(
             <HeaderSecChat name={contacts[this.props.id].name} img={contacts[this.props.id].img} />
         );
+
+        const containerContact = window.document.getElementsByClassName('contact');
+
+        for(let i = 0; i < containerContact.length; i++) {
+            containerContact[i].removeAttribute('style', 'background-color: var(--colorGray);');
+        }
+
+        containerContact[this.props.id].setAttribute('style', 'background-color: var(--colorGray);');
     }
 
     render() {
