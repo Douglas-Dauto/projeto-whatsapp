@@ -51,3 +51,7 @@
     gap: 5px;
     padding-right: 18px;
 }
+
+.contact svg path{
+    fill: var(--colorGrayTwo);
+}

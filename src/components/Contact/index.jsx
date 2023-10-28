@@ -12,6 +12,7 @@ import profile8 from '../../../src/assets/img/profile-8.jpg';
 import profile9 from '../../../src/assets/img/profile-9.jpg';
 import profile10 from '../../../src/assets/img/profile-10.jpg';
 import HeaderSecChat from "../HeaderSecChat";
+import ChatAreaMsg from '../ChatAreaMsg';
 export default class Contact extends Component {
     constructor(props) {
         super(props);
@@ -24,9 +25,19 @@ export default class Contact extends Component {
                     name: 'Douglas Bastos',
                     visualization: false,
                     message: {
-                        text: 'Oi, tudo bem com você?',
+                        text: 'Tudo, e você?',
                         date: '04/02/2001'
-                    }
+                    },
+                    receiveAndSend: [
+                        {
+                            msg: 'Olá, tudo bem?',
+                            tag: 'receive'
+                        },
+                        {
+                            msg: 'Tudo, e você?',
+                            tag: 'send'
+                        }
+                    ]
                 },
                 {
                     id: 2,
@@ -36,7 +47,17 @@ export default class Contact extends Component {
                     message: {
                         text: 'Lorem ipsum dolor, sit amet consectetur?',
                         date: '07/07/2011'
-                    }
+                    },
+                    receiveAndSend: [
+                        {
+                            msg: 'lorem1',
+                            tag: 'receive'
+                        },
+                        {
+                            msg: 'lorem1',
+                            tag: 'send'
+                        }
+                    ]
                 },
                 {
                     id: 3,
@@ -46,7 +67,17 @@ export default class Contact extends Component {
                     message: {
                         text: 'Lorem ipsum dolor, sit amet consectetur?',
                         date: '03/12/2021'
-                    }
+                    },
+                    receiveAndSend: [
+                        {
+                            msg: 'lorem2',
+                            tag: 'receive'
+                        },
+                        {
+                            msg: 'lorem2',
+                            tag: 'send'
+                        }
+                    ]
                 },
                 {
                     id: 4,
@@ -56,7 +87,17 @@ export default class Contact extends Component {
                     message: {
                         text: 'Lorem ipsum dolor, sit amet consectetur?',
                         date: '03/01/2010'
-                    }
+                    },
+                    receiveAndSend: [
+                        {
+                            msg: 'lorem3',
+                            tag: 'receive'
+                        },
+                        {
+                            msg: 'lorem3',
+                            tag: 'send'
+                        }
+                    ]
                 },
                 {
                     id: 5,
@@ -66,7 +107,17 @@ export default class Contact extends Component {
                     message: {
                         text: 'Lorem ipsum dolor, sit amet consectetur?',
                         date: '05/06/2015'
-                    }
+                    },
+                    receiveAndSend: [
+                        {
+                            msg: 'lorem4',
+                            tag: 'receive'
+                        },
+                        {
+                            msg: 'lorem4',
+                            tag: 'send'
+                        }
+                    ]
                 },
                 {
                     id: 6,
@@ -76,7 +127,17 @@ export default class Contact extends Component {
                     message: {
                         text: 'Lorem ipsum dolor, sit amet consectetur?',
                         date: '07/05/2009'
-                    }
+                    },
+                    receiveAndSend: [
+                        {
+                            msg: 'lorem5',
+                            tag: 'receive'
+                        },
+                        {
+                            msg: 'lorem5',
+                            tag: 'send'
+                        }
+                    ]
                 },
                 {
                     id: 7,
@@ -86,7 +147,17 @@ export default class Contact extends Component {
                     message: {
                         text: 'Lorem ipsum dolor, sit amet consectetur?',
                         date: '06/02/2020'
-                    }
+                    },
+                    receiveAndSend: [
+                        {
+                            msg: 'lorem7',
+                            tag: 'receive'
+                        },
+                        {
+                            msg: 'lorem7',
+                            tag: 'send'
+                        }
+                    ]
                 },
                 {
                     id: 8,
@@ -96,7 +167,17 @@ export default class Contact extends Component {
                     message: {
                         text: 'Lorem ipsum dolor, sit amet consectetur?',
                         date: '08/05/2011'
-                    }
+                    },
+                    receiveAndSend: [
+                        {
+                            msg: 'lorem8',
+                            tag: 'receive'
+                        },
+                        {
+                            msg: 'lorem8',
+                            tag: 'send'
+                        }
+                    ]
                 },
                 {
                     id: 9,
@@ -106,7 +187,17 @@ export default class Contact extends Component {
                     message: {
                         text: 'Lorem ipsum dolor, sit amet consectetur?',
                         date: '03/05/2010'
-                    }
+                    },
+                    receiveAndSend: [
+                        {
+                            msg: 'lorem9',
+                            tag: 'receive'
+                        },
+                        {
+                            msg: 'lorem9',
+                            tag: 'send'
+                        }
+                    ]
                 },
                 {
                     id: 10,
@@ -116,7 +207,17 @@ export default class Contact extends Component {
                     message: {
                         text: 'Lorem ipsum dolor, sit amet consectetur?',
                         date: '09/09/2009'
-                    }
+                    },
+                    receiveAndSend: [
+                        {
+                            msg: 'lorem10',
+                            tag: 'receive'
+                        },
+                        {
+                            msg: 'lorem10',
+                            tag: 'send'
+                        }
+                    ]
                 }
             ]
         }
@@ -134,6 +235,12 @@ export default class Contact extends Component {
             <HeaderSecChat name={contacts[this.props.id].name} img={contacts[this.props.id].img} />
         );
 
+        let chatAreaMsg = ReactDOM.createRoot(document.getElementById('container-chat-area-msg-download-whatsapp'));
+
+        chatAreaMsg.render(
+            <ChatAreaMsg lenghtChat={contacts[this.props.id].receiveAndSend.length} receiveAndSend={contacts[this.props.id].receiveAndSend} />
+        );
+
         const containerContact = window.document.getElementsByClassName('contact');
 
         for(let i = 0; i < containerContact.length; i++) {
@@ -141,6 +248,10 @@ export default class Contact extends Component {
         }
 
         containerContact[this.props.id].setAttribute('style', 'background-color: var(--colorGray);');
+
+        const headerSectionChat = window.document.querySelector('header section:nth-child(2)');
+
+        headerSectionChat.setAttribute('class', 'header-sec-chat-shadow');
     }
 
     render() {

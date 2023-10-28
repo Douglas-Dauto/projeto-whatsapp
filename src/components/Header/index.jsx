@@ -5,16 +5,14 @@ import HeaderSecChat from '../HeaderSecChat';
 
 export default class Header extends Component {
     render() {
-        if(true) {
-            return (
-                <>
-                    <section>
-                        <HeaderSecContacts />
-                    </section>
-                    
-                    <section id="header-sec-chat"></section>
-                </>
-            );
-        }
+        return (
+            <>
+                <section>
+                    <HeaderSecContacts />
+                </section>
+                
+                <section id="header-sec-chat"></section>
+            </>
+        );
     }
 }

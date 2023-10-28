@@ -3,13 +3,23 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: 20px;
-    width: 50%;
+    width: 100%;
     height: 100%;
+    background-color: var(--colorGray);
 }
 
-.container-download-whatsapp img {
-    width: 70%;
+.container-download-whatsapp__content-download-whatsapp {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.container-download-whatsapp .container-download-whatsapp__desktop-image {
+    width: 68%;
     transform: translateY(-15px);
 }
 
