@@ -13,6 +13,14 @@ import profile9 from '../../../src/assets/img/profile-9.jpg';
 import profile10 from '../../../src/assets/img/profile-10.jpg';
 import HeaderSecChat from "../HeaderSecChat";
 import ChatAreaMsg from '../ChatAreaMsg';
+
+let headerSecChat, chatAreaMsg;
+
+setTimeout(() => {
+    headerSecChat = ReactDOM.createRoot(document.getElementById('header-sec-chat'));
+    chatAreaMsg = ReactDOM.createRoot(document.getElementById('container-chat-area-msg-download-whatsapp'));
+}, 10);
+
 export default class Contact extends Component {
     constructor(props) {
         super(props);
@@ -31,11 +39,13 @@ export default class Contact extends Component {
                     receiveAndSend: [
                         {
                             msg: 'Olá, tudo bem?',
-                            tag: 'receive'
+                            tag: 'receive',
+                            hour: '11:14'
                         },
                         {
                             msg: 'Tudo, e você?',
-                            tag: 'send'
+                            tag: 'send',
+                            hour: '12:01'
                         }
                     ]
                 },
@@ -51,11 +61,13 @@ export default class Contact extends Component {
                     receiveAndSend: [
                         {
                             msg: 'lorem1',
-                            tag: 'receive'
+                            tag: 'receive',
+                            hour: '14:11'
                         },
                         {
                             msg: 'lorem1',
-                            tag: 'send'
+                            tag: 'send',
+                            hour: '15:59'
                         }
                     ]
                 },
@@ -71,11 +83,13 @@ export default class Contact extends Component {
                     receiveAndSend: [
                         {
                             msg: 'lorem2',
-                            tag: 'receive'
+                            tag: 'receive',
+                            hour: '13:50'
                         },
                         {
                             msg: 'lorem2',
-                            tag: 'send'
+                            tag: 'send',
+                            hour: '15:30'
                         }
                     ]
                 },
@@ -91,11 +105,13 @@ export default class Contact extends Component {
                     receiveAndSend: [
                         {
                             msg: 'lorem3',
-                            tag: 'receive'
+                            tag: 'receive',
+                            hour: '23:10'
                         },
                         {
                             msg: 'lorem3',
-                            tag: 'send'
+                            tag: 'send',
+                            hour: '07:30'
                         }
                     ]
                 },
@@ -111,11 +127,13 @@ export default class Contact extends Component {
                     receiveAndSend: [
                         {
                             msg: 'lorem4',
-                            tag: 'receive'
+                            tag: 'receive',
+                            hour: '20:10'
                         },
                         {
                             msg: 'lorem4',
-                            tag: 'send'
+                            tag: 'send',
+                            hour: '22:22'
                         }
                     ]
                 },
@@ -131,11 +149,13 @@ export default class Contact extends Component {
                     receiveAndSend: [
                         {
                             msg: 'lorem5',
-                            tag: 'receive'
+                            tag: 'receive',
+                            hour: '09:52'
                         },
                         {
                             msg: 'lorem5',
-                            tag: 'send'
+                            tag: 'send',
+                            hour: '11:20'
                         }
                     ]
                 },
@@ -151,11 +171,13 @@ export default class Contact extends Component {
                     receiveAndSend: [
                         {
                             msg: 'lorem7',
-                            tag: 'receive'
+                            tag: 'receive',
+                            hour: '16:50'
                         },
                         {
                             msg: 'lorem7',
-                            tag: 'send'
+                            tag: 'send',
+                            hour: '17:27'
                         }
                     ]
                 },
@@ -171,11 +193,13 @@ export default class Contact extends Component {
                     receiveAndSend: [
                         {
                             msg: 'lorem8',
-                            tag: 'receive'
+                            tag: 'receive',
+                            hour: '22;28'
                         },
                         {
                             msg: 'lorem8',
-                            tag: 'send'
+                            tag: 'send',
+                            hour: '03:29'
                         }
                     ]
                 },
@@ -191,11 +215,13 @@ export default class Contact extends Component {
                     receiveAndSend: [
                         {
                             msg: 'lorem9',
-                            tag: 'receive'
+                            tag: 'receive',
+                            hour: '16:30'
                         },
                         {
                             msg: 'lorem9',
-                            tag: 'send'
+                            tag: 'send',
+                            hour: '18:52'
                         }
                     ]
                 },
@@ -211,11 +237,13 @@ export default class Contact extends Component {
                     receiveAndSend: [
                         {
                             msg: 'lorem10',
-                            tag: 'receive'
+                            tag: 'receive',
+                            hour: '16:20'
                         },
                         {
                             msg: 'lorem10',
-                            tag: 'send'
+                            tag: 'send',
+                            hour: '17:32'
                         }
                     ]
                 }
@@ -229,13 +257,10 @@ export default class Contact extends Component {
 
     handleShowContact = () => {
         const { contacts } = this.state;
-        let headerSecChat = ReactDOM.createRoot(document.getElementById('header-sec-chat'));
         
         headerSecChat.render(
             <HeaderSecChat name={contacts[this.props.id].name} img={contacts[this.props.id].img} />
         );
-
-        let chatAreaMsg = ReactDOM.createRoot(document.getElementById('container-chat-area-msg-download-whatsapp'));
 
         chatAreaMsg.render(
             <ChatAreaMsg lenghtChat={contacts[this.props.id].receiveAndSend.length} receiveAndSend={contacts[this.props.id].receiveAndSend} />
