@@ -13,13 +13,18 @@ import profile9 from '../../../src/assets/img/profile-9.jpg';
 import profile10 from '../../../src/assets/img/profile-10.jpg';
 import HeaderSecChat from "../HeaderSecChat";
 import ChatAreaMsg from '../ChatAreaMsg';
+import ChatAreaWrite from '../ChatAreaWrite';
+import convertHour from '../../utils/convertHour'
 
-let headerSecChat, chatAreaMsg;
+let headerSecChat, chatAreaMsg, chatAreaWrite;
+let controlReactDomChatWrite = true;
 
 setTimeout(() => {
     headerSecChat = ReactDOM.createRoot(document.getElementById('header-sec-chat'));
     chatAreaMsg = ReactDOM.createRoot(document.getElementById('container-chat-area-msg-download-whatsapp'));
 }, 10);
+
+
 
 export default class Contact extends Component {
     constructor(props) {
@@ -58,18 +63,7 @@ export default class Contact extends Component {
                         text: 'Lorem ipsum dolor, sit amet consectetur?',
                         date: '07/07/2011'
                     },
-                    receiveAndSend: [
-                        {
-                            msg: 'lorem1',
-                            tag: 'receive',
-                            hour: '14:11'
-                        },
-                        {
-                            msg: 'lorem1',
-                            tag: 'send',
-                            hour: '15:59'
-                        }
-                    ]
+                    receiveAndSend: []
                 },
                 {
                     id: 3,
@@ -80,18 +74,7 @@ export default class Contact extends Component {
                         text: 'Lorem ipsum dolor, sit amet consectetur?',
                         date: '03/12/2021'
                     },
-                    receiveAndSend: [
-                        {
-                            msg: 'lorem2',
-                            tag: 'receive',
-                            hour: '13:50'
-                        },
-                        {
-                            msg: 'lorem2',
-                            tag: 'send',
-                            hour: '15:30'
-                        }
-                    ]
+                    receiveAndSend: []
                 },
                 {
                     id: 4,
@@ -102,18 +85,7 @@ export default class Contact extends Component {
                         text: 'Lorem ipsum dolor, sit amet consectetur?',
                         date: '03/01/2010'
                     },
-                    receiveAndSend: [
-                        {
-                            msg: 'lorem3',
-                            tag: 'receive',
-                            hour: '23:10'
-                        },
-                        {
-                            msg: 'lorem3',
-                            tag: 'send',
-                            hour: '07:30'
-                        }
-                    ]
+                    receiveAndSend: []
                 },
                 {
                     id: 5,
@@ -124,18 +96,7 @@ export default class Contact extends Component {
                         text: 'Lorem ipsum dolor, sit amet consectetur?',
                         date: '05/06/2015'
                     },
-                    receiveAndSend: [
-                        {
-                            msg: 'lorem4',
-                            tag: 'receive',
-                            hour: '20:10'
-                        },
-                        {
-                            msg: 'lorem4',
-                            tag: 'send',
-                            hour: '22:22'
-                        }
-                    ]
+                    receiveAndSend: []
                 },
                 {
                     id: 6,
@@ -146,18 +107,7 @@ export default class Contact extends Component {
                         text: 'Lorem ipsum dolor, sit amet consectetur?',
                         date: '07/05/2009'
                     },
-                    receiveAndSend: [
-                        {
-                            msg: 'lorem5',
-                            tag: 'receive',
-                            hour: '09:52'
-                        },
-                        {
-                            msg: 'lorem5',
-                            tag: 'send',
-                            hour: '11:20'
-                        }
-                    ]
+                    receiveAndSend: []
                 },
                 {
                     id: 7,
@@ -168,18 +118,7 @@ export default class Contact extends Component {
                         text: 'Lorem ipsum dolor, sit amet consectetur?',
                         date: '06/02/2020'
                     },
-                    receiveAndSend: [
-                        {
-                            msg: 'lorem7',
-                            tag: 'receive',
-                            hour: '16:50'
-                        },
-                        {
-                            msg: 'lorem7',
-                            tag: 'send',
-                            hour: '17:27'
-                        }
-                    ]
+                    receiveAndSend: []
                 },
                 {
                     id: 8,
@@ -190,18 +129,7 @@ export default class Contact extends Component {
                         text: 'Lorem ipsum dolor, sit amet consectetur?',
                         date: '08/05/2011'
                     },
-                    receiveAndSend: [
-                        {
-                            msg: 'lorem8',
-                            tag: 'receive',
-                            hour: '22;28'
-                        },
-                        {
-                            msg: 'lorem8',
-                            tag: 'send',
-                            hour: '03:29'
-                        }
-                    ]
+                    receiveAndSend: []
                 },
                 {
                     id: 9,
@@ -212,18 +140,7 @@ export default class Contact extends Component {
                         text: 'Lorem ipsum dolor, sit amet consectetur?',
                         date: '03/05/2010'
                     },
-                    receiveAndSend: [
-                        {
-                            msg: 'lorem9',
-                            tag: 'receive',
-                            hour: '16:30'
-                        },
-                        {
-                            msg: 'lorem9',
-                            tag: 'send',
-                            hour: '18:52'
-                        }
-                    ]
+                    receiveAndSend: []
                 },
                 {
                     id: 10,
@@ -234,18 +151,7 @@ export default class Contact extends Component {
                         text: 'Lorem ipsum dolor, sit amet consectetur?',
                         date: '09/09/2009'
                     },
-                    receiveAndSend: [
-                        {
-                            msg: 'lorem10',
-                            tag: 'receive',
-                            hour: '16:20'
-                        },
-                        {
-                            msg: 'lorem10',
-                            tag: 'send',
-                            hour: '17:32'
-                        }
-                    ]
+                    receiveAndSend: []
                 }
             ]
         }
@@ -253,6 +159,41 @@ export default class Contact extends Component {
 
     contactsLenght = () => {
         return this.state.contacts.length;
+    }
+
+    handleInjectMsg = () => {
+        const input  = window.document.getElementById('area-input-text');
+        const { contacts } = this.state;
+
+        this.state.contacts[this.props.id].receiveAndSend.push({msg: input.value, tag: 'send', hour: `${new Date().getHours()}:${new Date().getMinutes()}`});
+
+        chatAreaMsg.render(
+            <ChatAreaMsg lenghtChat={contacts[this.props.id].receiveAndSend.length} receiveAndSend={contacts[this.props.id].receiveAndSend} />
+        );
+
+        setTimeout(() => {
+            window.document.getElementById('container-chat-area-msg-download-whatsapp').scrollTo(0, window.document.getElementById('container-chat-area-msg-download-whatsapp').scrollHeight);
+        }, 10);
+
+        let valueInput = input.value;
+
+        setTimeout(() => {
+            const svgConfirmation = window.document.querySelectorAll('.svg-confirmation path');
+
+            for(let i = 0; i < svgConfirmation.length; i++) {
+                svgConfirmation[i].setAttribute('style', 'fill: var(--colorLightBlueTwo);');
+            }
+
+            setTimeout(() => {
+                this.state.contacts[this.props.id].receiveAndSend.push({msg: valueInput, tag: 'receive', hour: `${convertHour(new Date().getHours())}:${convertHour(new Date().getMinutes())}`});
+
+                chatAreaMsg.render(
+                    <ChatAreaMsg lenghtChat={contacts[this.props.id].receiveAndSend.length} receiveAndSend={contacts[this.props.id].receiveAndSend} />
+                );
+            }, 1500);
+        }, 1500);
+
+        input.value = '';
     }
 
     handleShowContact = () => {
@@ -264,6 +205,17 @@ export default class Contact extends Component {
 
         chatAreaMsg.render(
             <ChatAreaMsg lenghtChat={contacts[this.props.id].receiveAndSend.length} receiveAndSend={contacts[this.props.id].receiveAndSend} />
+        );
+
+        if(controlReactDomChatWrite) {
+            chatAreaWrite = ReactDOM.createRoot(document.getElementById('chat-area-write'));
+            
+            controlReactDomChatWrite = false;
+        }
+
+
+        chatAreaWrite.render(
+            <ChatAreaWrite injectMsg={this.handleInjectMsg} />
         );
 
         const containerContact = window.document.getElementsByClassName('contact');

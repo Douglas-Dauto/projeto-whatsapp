@@ -1,5 +1,8 @@
 .container-chat__content {
     padding: 20px 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
 
 .container-chat > div:nth-child(1) .container-chat__container-receive, .container-chat > div:nth-child(1) > .container-chat__container-receive div, .container-chat > div:nth-child(1) .container-chat__container-send, .container-chat > div:nth-child(1) > .container-chat__container-send div {

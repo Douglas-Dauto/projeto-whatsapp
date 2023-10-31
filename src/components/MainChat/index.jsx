@@ -12,9 +12,7 @@ export default class MainChat extends Component {
                     <DownloadWhatsapp />
                 </div>
                 
-                <div>
-                    <ChatAreaWrite />
-                </div>
+                <div id="chat-area-write"></div>
             </div>
         );
     }

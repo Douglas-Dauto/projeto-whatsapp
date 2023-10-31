@@ -1,11 +1,14 @@
 import { Component } from "react";
 import './styles.css';
-import { chatAreaMsg } from '../ChatAreaMsg';
 
 export default class ChatAreaWrite extends Component {
+    constructor(props) {
+        super(props);
+    }
+
     handleSendMsg = (e) => {
         if(e.keyCode === 13 && window.document.getElementById('area-input-text').value !== '') {
-            chatAreaMsg.handleInjectMsg();
+            this.props.injectMsg();
         }
     }
 
