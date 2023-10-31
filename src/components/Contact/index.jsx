@@ -17,7 +17,7 @@ import ChatAreaWrite from '../ChatAreaWrite';
 import convertHour from '../../utils/convertHour'
 
 let headerSecChat, chatAreaMsg, chatAreaWrite;
-let controlReactDomChatWrite = true;
+let controlReactDomChatWrite = true, controlLenghtSvgPath = [];
 
 setTimeout(() => {
     headerSecChat = ReactDOM.createRoot(document.getElementById('header-sec-chat'));
@@ -162,7 +162,7 @@ export default class Contact extends Component {
     }
 
     handleInjectMsg = () => {
-        const input  = window.document.getElementById('area-input-text');
+        const input = window.document.getElementById('area-input-text');
         const { contacts } = this.state;
 
         this.state.contacts[this.props.id].receiveAndSend.push({msg: input.value, tag: 'send', hour: `${new Date().getHours()}:${new Date().getMinutes()}`});
@@ -178,11 +178,9 @@ export default class Contact extends Component {
         let valueInput = input.value;
 
         setTimeout(() => {
-            const svgConfirmation = window.document.querySelectorAll('.svg-confirmation path');
+            this.vizualizationMessege();
 
-            for(let i = 0; i < svgConfirmation.length; i++) {
-                svgConfirmation[i].setAttribute('style', 'fill: var(--colorLightBlueTwo);');
-            }
+            controlLenghtSvgPath[this.props.id] = true;
 
             setTimeout(() => {
                 this.state.contacts[this.props.id].receiveAndSend.push({msg: valueInput, tag: 'receive', hour: `${convertHour(new Date().getHours())}:${convertHour(new Date().getMinutes())}`});
@@ -194,6 +192,14 @@ export default class Contact extends Component {
         }, 1500);
 
         input.value = '';
+    }
+
+    vizualizationMessege = () => {
+        const svgConfirmation = window.document.querySelectorAll('.svg-confirmation path');
+
+        for(let i = 0; i < svgConfirmation.length; i++) {
+            svgConfirmation[i].setAttribute('style', 'fill: var(--colorLightBlueTwo);');
+        }
     }
 
     handleShowContact = () => {
@@ -213,7 +219,6 @@ export default class Contact extends Component {
             controlReactDomChatWrite = false;
         }
 
-
         chatAreaWrite.render(
             <ChatAreaWrite injectMsg={this.handleInjectMsg} />
         );
@@ -229,6 +234,21 @@ export default class Contact extends Component {
         const headerSectionChat = window.document.querySelector('header section:nth-child(2)');
 
         headerSectionChat.setAttribute('class', 'header-sec-chat-shadow');
+
+        setTimeout(() => {
+            const input = window.document.getElementById('area-input-text');
+            
+            input.focus();
+            input.value = '';
+
+            for(let i = 0; i < window.document.querySelectorAll('.svg-confirmation path').length; i++) {
+                controlLenghtSvgPath.push(false);
+            }
+            
+            if(controlLenghtSvgPath[this.props.id]) {
+                this.vizualizationMessege();
+            }
+        }, 10);
     }
 
     render() {

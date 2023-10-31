@@ -27,3 +27,9 @@
     color: var(--colorBlack);
     font-weight: lighter;
 }
+
+#button-audio-send-chat-area-write {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
