@@ -14,10 +14,12 @@ import profile10 from '../../../src/assets/img/profile-10.jpg';
 import HeaderSecChat from "../HeaderSecChat";
 import ChatAreaMsg from '../ChatAreaMsg';
 import ChatAreaWrite from '../ChatAreaWrite';
-import convertHour from '../../utils/convertHour'
+import convertHour from '../../utils/convertHour';
+import moveScrollMsg from '../../utils/moveScrollMsg';
+import { chatAreaWriteObj } from '../ChatAreaWrite';
 
 let headerSecChat, chatAreaMsg, chatAreaWrite;
-let controlReactDomChatWrite = true, controlLenghtSvgPath = [];
+let controlReactDomChatWrite = true, controlLenghtSvgPath = [], controlButtonSendAndAudio = true;
 
 setTimeout(() => {
     headerSecChat = ReactDOM.createRoot(document.getElementById('header-sec-chat'));
@@ -38,8 +40,8 @@ export default class Contact extends Component {
                     name: 'Douglas Bastos',
                     visualization: false,
                     message: {
-                        text: 'Tudo, e você?',
-                        date: '04/02/2001'
+                        text: '',
+                        date: ''
                     },
                     receiveAndSend: [
                         {
@@ -60,10 +62,21 @@ export default class Contact extends Component {
                     name: 'Helena Borges',
                     visualization: false,
                     message: {
-                        text: 'Lorem ipsum dolor, sit amet consectetur?',
-                        date: '07/07/2011'
+                        text: '',
+                        date: ''
                     },
-                    receiveAndSend: []
+                    receiveAndSend: [
+                        {
+                            msg: 'Olá, como vai?',
+                            tag: 'receive',
+                            hour: '15:14'
+                        },
+                        {
+                            msg: 'Vou bem, e você?',
+                            tag: 'send',
+                            hour: '18:01'
+                        }
+                    ]
                 },
                 {
                     id: 3,
@@ -71,10 +84,21 @@ export default class Contact extends Component {
                     name: 'Alice Araújo',
                     visualization: false,
                     message: {
-                        text: 'Lorem ipsum dolor, sit amet consectetur?',
-                        date: '03/12/2021'
+                        text: '',
+                        date: ''
                     },
-                    receiveAndSend: []
+                    receiveAndSend: [
+                        {
+                            msg: 'Você pegou meu livro?',
+                            tag: 'receive',
+                            hour: '22:14'
+                        },
+                        {
+                            msg: 'Sim, já devolvo.',
+                            tag: 'send',
+                            hour: '23:01'
+                        }
+                    ]
                 },
                 {
                     id: 4,
@@ -82,10 +106,21 @@ export default class Contact extends Component {
                     name: 'Laura Alves',
                     visualization: false,
                     message: {
-                        text: 'Lorem ipsum dolor, sit amet consectetur?',
-                        date: '03/01/2010'
+                        text: '',
+                        date: ''
                     },
-                    receiveAndSend: []
+                    receiveAndSend: [
+                        {
+                            msg: 'Como você está primo?',
+                            tag: 'receive',
+                            hour: '12:54'
+                        },
+                        {
+                            msg: 'Estou bem, e você?',
+                            tag: 'send',
+                            hour: '15:21'
+                        }
+                    ]
                 },
                 {
                     id: 5,
@@ -93,10 +128,21 @@ export default class Contact extends Component {
                     name: 'Maria Alice',
                     visualization: false,
                     message: {
-                        text: 'Lorem ipsum dolor, sit amet consectetur?',
-                        date: '05/06/2015'
+                        text: '',
+                        date: ''
                     },
-                    receiveAndSend: []
+                    receiveAndSend: [
+                        {
+                            msg: 'Oi, você é da minha sala da faculdade?',
+                            tag: 'receive',
+                            hour: '08:22'
+                        },
+                        {
+                            msg: 'Oi, acho que sou.',
+                            tag: 'send',
+                            hour: '10:40'
+                        }
+                    ]
                 },
                 {
                     id: 6,
@@ -104,10 +150,21 @@ export default class Contact extends Component {
                     name: 'Sophia Amélia',
                     visualization: false,
                     message: {
-                        text: 'Lorem ipsum dolor, sit amet consectetur?',
-                        date: '07/05/2009'
+                        text: '',
+                        date: ''
                     },
-                    receiveAndSend: []
+                    receiveAndSend: [
+                        {
+                            msg: 'Olá, que perfil legal.',
+                            tag: 'receive',
+                            hour: '07:04'
+                        },
+                        {
+                            msg: 'Obrigado, o seu também.',
+                            tag: 'send',
+                            hour: '07:11'
+                        }
+                    ]
                 },
                 {
                     id: 7,
@@ -115,10 +172,21 @@ export default class Contact extends Component {
                     name: 'Manuela Brito',
                     visualization: false,
                     message: {
-                        text: 'Lorem ipsum dolor, sit amet consectetur?',
-                        date: '06/02/2020'
+                        text: '',
+                        date: ''
                     },
-                    receiveAndSend: []
+                    receiveAndSend: [
+                        {
+                            msg: 'Que horas é para estar lá?',
+                            tag: 'receive',
+                            hour: '09:34'
+                        },
+                        {
+                            msg: 'Oi Manuela, duas horas.',
+                            tag: 'send',
+                            hour: '10:31'
+                        }
+                    ]
                 },
                 {
                     id: 8,
@@ -126,10 +194,21 @@ export default class Contact extends Component {
                     name: 'Cecília Betine',
                     visualization: false,
                     message: {
-                        text: 'Lorem ipsum dolor, sit amet consectetur?',
-                        date: '08/05/2011'
+                        text: '',
+                        date: ''
                     },
-                    receiveAndSend: []
+                    receiveAndSend: [
+                        {
+                            msg: 'Douglas, tudo certo para o passeio?',
+                            tag: 'receive',
+                            hour: '12:34'
+                        },
+                        {
+                            msg: 'Oi, tudo certo :).',
+                            tag: 'send',
+                            hour: '12:51'
+                        }
+                    ]
                 },
                 {
                     id: 9,
@@ -137,10 +216,21 @@ export default class Contact extends Component {
                     name: 'Isabella Barreto',
                     visualization: false,
                     message: {
-                        text: 'Lorem ipsum dolor, sit amet consectetur?',
-                        date: '03/05/2010'
+                        text: '',
+                        date: ''
                     },
-                    receiveAndSend: []
+                    receiveAndSend: [
+                        {
+                            msg: 'Bom dia, vai ter evento hoje?',
+                            tag: 'receive',
+                            hour: '10:00'
+                        },
+                        {
+                            msg: 'Bom dia, sim.',
+                            tag: 'send',
+                            hour: '11:35'
+                        }
+                    ]
                 },
                 {
                     id: 10,
@@ -148,13 +238,39 @@ export default class Contact extends Component {
                     name: 'Arthur Barbosa',
                     visualization: false,
                     message: {
-                        text: 'Lorem ipsum dolor, sit amet consectetur?',
-                        date: '09/09/2009'
+                        text: '',
+                        date: ''
                     },
-                    receiveAndSend: []
+                    receiveAndSend: [
+                        {
+                            msg: 'Boa tarde, que horas é para estar ai?',
+                            tag: 'receive',
+                            hour: '14:40'
+                        },
+                        {
+                            msg: 'Boa tarde, pode ser cinco horas.',
+                            tag: 'send',
+                            hour: '15:15'
+                        }
+                    ]
                 }
             ]
         }
+    }
+
+    componentDidMount() {
+        this.updateMessegeContacts();
+    }
+
+    updateMessegeContacts = () => {
+        for(let i = 0; i < this.state.contacts.length; i++) {
+            this.state.contacts[i].message.text = this.state.contacts[i].receiveAndSend[this.state.contacts[i].receiveAndSend.length -1].msg;
+            this.state.contacts[i].message.date = this.state.contacts[i].receiveAndSend[this.state.contacts[i].receiveAndSend.length -1].hour;
+        }
+
+        this.setState({
+            contacts: this.state.contacts
+        });
     }
 
     contactsLenght = () => {
@@ -165,15 +281,14 @@ export default class Contact extends Component {
         const input = window.document.getElementById('area-input-text');
         const { contacts } = this.state;
 
-        this.state.contacts[this.props.id].receiveAndSend.push({msg: input.value, tag: 'send', hour: `${new Date().getHours()}:${new Date().getMinutes()}`});
+        this.state.contacts[this.props.id].receiveAndSend.push({msg: input.value, tag: 'send', hour: `${convertHour(new Date().getHours())}:${convertHour(new Date().getMinutes())}`});
 
         chatAreaMsg.render(
             <ChatAreaMsg lenghtChat={contacts[this.props.id].receiveAndSend.length} receiveAndSend={contacts[this.props.id].receiveAndSend} />
         );
 
-        setTimeout(() => {
-            window.document.getElementById('container-chat-area-msg-download-whatsapp').scrollTo(0, window.document.getElementById('container-chat-area-msg-download-whatsapp').scrollHeight);
-        }, 10);
+        moveScrollMsg();
+        this.updateMessegeContacts();
 
         let valueInput = input.value;
 
@@ -188,6 +303,8 @@ export default class Contact extends Component {
                 chatAreaMsg.render(
                     <ChatAreaMsg lenghtChat={contacts[this.props.id].receiveAndSend.length} receiveAndSend={contacts[this.props.id].receiveAndSend} />
                 );
+
+                moveScrollMsg();
             }, 1500);
         }, 1500);
 
@@ -248,6 +365,14 @@ export default class Contact extends Component {
             if(controlLenghtSvgPath[this.props.id]) {
                 this.vizualizationMessege();
             }
+
+            if(controlButtonSendAndAudio) {
+                chatAreaWriteObj.handleButtonSendAndAudio(false);
+                controlButtonSendAndAudio = false;
+            } else {
+                chatAreaWriteObj.handleButtonSendAndAudio();
+            }
+
         }, 10);
     }
 
