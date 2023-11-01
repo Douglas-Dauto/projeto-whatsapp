@@ -27,9 +27,9 @@ export default class ChatAreaWrite extends Component {
         }
     }
 
-    handleButtonSendAndAudio = (control = true) => {
+    handleButtonSendAndAudio = (control = true, controlButtonSend = true) => {
         if(control) {
-            if(window.document.getElementById('area-input-text').value !== '') {
+            if(window.document.getElementById('area-input-text').value !== '' && controlButtonSend) {
                 containerButton.render(
                     <ButtonSendChatArea injectMsg={this.props.injectMsg} />
                 );
@@ -51,7 +51,7 @@ export default class ChatAreaWrite extends Component {
                 containerButton = ReactDOM.createRoot(document.getElementById('button-audio-send-chat-area-write'));
                 controlContainerButton = false;
             }
-        }, 10);
+        }, 100);
     }
 
     render() {

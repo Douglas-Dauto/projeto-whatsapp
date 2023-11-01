@@ -287,6 +287,8 @@ export default class Contact extends Component {
             <ChatAreaMsg lenghtChat={contacts[this.props.id].receiveAndSend.length} receiveAndSend={contacts[this.props.id].receiveAndSend} />
         );
 
+        chatAreaWriteObj.handleButtonSendAndAudio(undefined, false);
+
         moveScrollMsg();
         this.updateMessegeContacts();
 
