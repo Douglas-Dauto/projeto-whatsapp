@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/projeto-whatsapp/static/css/main.66a78e94.css",
+    "main.js": "/projeto-whatsapp/static/js/main.f2f397ee.js",
+    "static/media/profile-5.jpg": "/projeto-whatsapp/static/media/profile-5.fe1c0c375624e22e245c.jpg",
+    "static/media/desktop.png": "/projeto-whatsapp/static/media/desktop.73da2c5c5879eceffaff.png",
+    "static/media/profile-6.jpg": "/projeto-whatsapp/static/media/profile-6.05820f942809a577c0cc.jpg",
+    "static/media/profile-3.jpeg": "/projeto-whatsapp/static/media/profile-3.60fd82d05e570ab746b6.jpeg",
+    "static/media/profile-10.jpg": "/projeto-whatsapp/static/media/profile-10.3dfc72d703b3abbd27da.jpg",
+    "static/media/profile-2.jpeg": "/projeto-whatsapp/static/media/profile-2.a51e173b31697d2adaab.jpeg",
+    "static/media/profile-9.jpg": "/projeto-whatsapp/static/media/profile-9.d355368f0b78e4c8872b.jpg",
+    "static/media/profile-7.jpeg": "/projeto-whatsapp/static/media/profile-7.369ed783864f62ac8f26.jpeg",
+    "static/media/background-wp.png": "/projeto-whatsapp/static/media/background-wp.1cf7bb39b72c95f864f6.png",
+    "static/media/profile-4.jpg": "/projeto-whatsapp/static/media/profile-4.d346ea9fba195f352a67.jpg",
+    "static/media/eu.jpg": "/projeto-whatsapp/static/media/eu.c6130d749f42dfaa8be1.jpg",
+    "static/media/profile-8.jpg": "/projeto-whatsapp/static/media/profile-8.28b427f5472f2f917b9f.jpg",
+    "index.html": "/projeto-whatsapp/index.html",
+    "main.66a78e94.css.map": "/projeto-whatsapp/static/css/main.66a78e94.css.map",
+    "main.f2f397ee.js.map": "/projeto-whatsapp/static/js/main.f2f397ee.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.66a78e94.css",
+    "static/js/main.f2f397ee.js"
+  ]
+}
