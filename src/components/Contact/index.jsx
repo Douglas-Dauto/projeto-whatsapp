@@ -321,6 +321,14 @@ export default class Contact extends Component {
         }
     }
 
+    removeVizualizationMessege() {
+        const svgConfirmation = window.document.querySelectorAll('.svg-confirmation path');
+
+        for(let i = 0; i < svgConfirmation.length; i++) {
+            svgConfirmation[i].removeAttribute('style', 'fill: var(--colorLightBlueTwo);');
+        }
+    }
+
     handleShowContact = () => {
         const { contacts } = this.state;
         
@@ -363,6 +371,8 @@ export default class Contact extends Component {
             for(let i = 0; i < window.document.querySelectorAll('.svg-confirmation path').length; i++) {
                 controlLenghtSvgPath.push(false);
             }
+
+            this.removeVizualizationMessege();
             
             if(controlLenghtSvgPath[this.props.id]) {
                 this.vizualizationMessege();
